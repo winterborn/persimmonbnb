@@ -8,27 +8,35 @@ _Copy this recipe template to design and create two related database tables from
 # EXAMPLE USER STORY:
 # (analyse only the relevant part - here the final line).
 
-As a music lover,
-So I can organise my records,
-I want to keep a list of albums' titles.
 
-As a music lover,
-So I can organise my records,
-I want to keep a list of albums' release years.
-
-As a music lover,
-So I can organise my records,
-I want to keep a list of artists' names.
-
-As a music lover,
-So I can organise my records,
-I want to know each album's artist.
 ```
+As a User; 
+So that I can be a host and/or a guest 
+I want to sign up for MakersBnB.
 
+As a User; 
+So that I can list a new space, 
+I want to create a new space on MakersBnB.
+
+As a User; 
+So that I can list multiple spaces, 
+I want to list all created spaces.
+
+As a User;
+So that I can give details to my space,
+I want to add a name to my space.
+
+As a User;
+So that I can give details to my space,
+I want to add a short description to my space.
+
+As a User;
+So that I can give details to my space,
+I want to add a price per night to my space.
 ```
 Nouns:
 
-album, title, release year, artist, name
+Users, username, email, listed_spaces, space_name, space_description, space_price, available_dates, booked
 ```
 
 ## 2. Infer the Table Name and Columns
@@ -37,16 +45,16 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 | Record | Properties          |
 | ------ | ------------------- |
-| album  | title, release year |
-| artist | name                |
+| users  | username, email     |
+| listed_space | space_name , space_description, space_price, availble_dates, booked |
 
-1. Name of the first table (always plural): `albums`
+1. Name of the first table (always plural): `users`
 
-   Column names: `title`, `release_year`
+   Column names: `username`, `email`
 
-2. Name of the second table (always plural): `artists`
+2. Name of the second table (always plural): `listed_spaces`
 
-   Column names: `name`
+   Column names: `space_name , space_description, space_price, availble_dates, booked`
 
 ## 3. Decide the column types.
 
@@ -59,14 +67,19 @@ Remember to **always** have the primary key `id` as a first column. Its type wil
 ```
 # EXAMPLE:
 
-Table: albums
+Table: users
 id: SERIAL
-title: text
-release_year: int
+username: text
+email: text
 
-Table: artists
+Table: listed_spaces
 id: SERIAL
-name: text
+space_name: text
+space_description: text
+space_price: int
+available_dates: date
+booked: boolean
+
 ```
 
 ## 4. Decide on The Tables Relationship
@@ -75,8 +88,8 @@ Most of the time, you'll be using a **one-to-many** relationship, and will need 
 
 To decide on which one, answer these two questions:
 
-1. Can one [TABLE ONE] have many [TABLE TWO]? (Yes/No)
-2. Can one [TABLE TWO] have many [TABLE ONE]? (Yes/No)
+1. Can one users have many listed_spaces? Yes
+2. Can one listed_spaces have many users? No
 
 You'll then be able to say that:
 
@@ -110,20 +123,23 @@ _If you can answer YES to the two questions, you'll probably have to implement a
 -- Replace the table name, columm names and types.
 
 -- Create the table without the foreign key first.
-CREATE TABLE artists (
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  name text,
+  username text, email text
 );
 
+bnb
+bnb_test
+
 -- Then the table with the foreign key first.
-CREATE TABLE albums (
+CREATE TABLE listed_spaces (
   id SERIAL PRIMARY KEY,
-  title text,
-  release_year int,
+  space_name text, space_description text, space_price int, 
+  available_dates date, booked boolean,
 -- The foreign key name is always {other_table_singular}_id
-  artist_id int,
-  constraint fk_artist foreign key(artist_id)
-    references artists(id)
+  user_id int,
+  constraint fk_user foreign key(user_id)
+    references users(id)
     on delete cascade
 );
 
