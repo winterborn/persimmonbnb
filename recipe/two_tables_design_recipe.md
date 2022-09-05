@@ -150,5 +150,5 @@ CREATE TABLE listed_spaces (
 ## 5. Create the tables.
 
 ```bash
-psql -h 127.0.0.1 database_name < albums_table.sql
+psql -h 127.0.0.1 bnb_test < seeds_users.sql;
 ```
