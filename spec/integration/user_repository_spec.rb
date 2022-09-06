@@ -15,8 +15,9 @@ RSpec.describe UserRepository do
       repo = UserRepository.new
 
       user = repo.all
+      expect(user[0].name).to eq "Brit"
       expect(user[0].email).to eq "makers@hotmail.com"
-      expect(user[0].username).to eq "makers1"
+      expect(user[0].password).to eq "password123"
     end
   end
 
@@ -24,13 +25,15 @@ RSpec.describe UserRepository do
     repo = UserRepository.new
     new_user = User.new
 
-    new_user.email = "makers2@hotmail.com"
-    new_user.username = "Toby814"
+    new_user.name = "Phil"
+    new_user.email = "phil@gmail.com"
+    new_user.password = "password456"
 
     repo.create(new_user)
     results = repo.all
 
-    expect(results[1].email).to eq "makers2@hotmail.com"
-    expect(results[1].username).to eq "Toby814"
+    expect(results[2].name).to eq "Phil"
+    expect(results[2].email).to eq "phil@gmail.com"
+    expect(results[2].password).to eq "password456"
   end
 end
