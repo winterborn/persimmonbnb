@@ -5,7 +5,7 @@ class ListedSpaceRepository
     spaces = []
 
     sql =
-      "SELECT id, space_name, space_description, space_price, available_dates, booked, user_id FROM listed_spaces;"
+      "SELECT id, space_name, space_description, space_price, start_date, end_date, booked, user_id FROM listed_spaces;"
     result_set = DatabaseConnection.exec_params(sql, [])
     # Result set is an array of hashes.
 
@@ -17,7 +17,8 @@ class ListedSpaceRepository
       space.space_name = record["space_name"]
       space.space_description = (record["space_description"])
       space.space_price = record["space_price"].to_i
-      space.available_dates = record["available_dates"]
+      space.start_date = record["start_date"]
+      space.end_date = record["end_date"]
       space.booked = record["booked"]
       space.user_id = record["user_id"].to_i
 
@@ -29,12 +30,13 @@ class ListedSpaceRepository
 
   def create(listed_space)
     sql =
-      "INSERT INTO listed_spaces (space_name, space_description, space_price, available_dates, booked, user_id) VALUES ($1, $2, $3, $4, $5, $6);"
+      "INSERT INTO listed_spaces (space_name, space_description, space_price, start_date, end_date, booked, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7);"
     sql_params = [
       listed_space.space_name,
       listed_space.space_description,
       listed_space.space_price,
-      listed_space.available_dates,
+      listed_space.start_date,
+      listed_space.end_date,
       listed_space.booked,
       listed_space.user_id
     ]

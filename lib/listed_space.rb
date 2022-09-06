@@ -4,7 +4,8 @@ class ListedSpace
                 :space_name,
                 :space_description,
                 :space_price,
-                :available_dates,
+                :start_date,
+                :end_date,
                 :booked,
                 :user_id
 end
