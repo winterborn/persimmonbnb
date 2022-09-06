@@ -9,11 +9,13 @@
 
     <% @spaces.each do |space| %>
         <div>
-            <p><%= space.space_name %>: <%= space.space_description %> - <%= space.space_price %></p>
+            <p><%= space.space_name %>: <%= space.space_description %> - £<%= space.space_price %></p>
         </div>
       <% end %>
     
+    
+    <a href="/">Home</a>
     <a href="">Log In</a>
-    <a href="">Spaces</a>
+    <a href="/newspace">List a new Space</a>
   </body>
 </html>
