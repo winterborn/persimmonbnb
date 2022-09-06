@@ -58,4 +58,49 @@ RSpec.describe ListedSpaceRepository do
               )
     end
   end
+
+  context "#find method" do
+    it "finds entry 1" do
+      repo = ListedSpaceRepository.new
+      listing = repo.find(1)
+      expect(listing.id).to eq 1
+      expect(listing.space_name).to eq "Cottage"
+      expect(listing.space_description).to eq "A lovely, three bedroom cottage."
+      expect(listing.space_price).to eq 100
+      expect(listing.start_date).to eq "2022-09-05"
+      expect(listing.end_date).to eq "2022-09-10"
+      expect(listing.booked).to eq "f"
+    end
+
+    it "finds entry 3" do
+      repo = ListedSpaceRepository.new
+      listing = repo.find(3)
+      expect(listing.id).to eq 3
+      expect(listing.space_name).to eq "House"
+      expect(listing.space_description).to eq "A house in leafy Richmond."
+      expect(listing.space_price).to eq 600
+      expect(listing.start_date).to eq "2022-09-12"
+      expect(listing.end_date).to eq "2022-09-30"
+      expect(listing.booked).to eq "f"
+    end
+  end
+
+  context "#update method" do
+    it "updates a listing given a id with new values" do
+      repo = ListedSpaceRepository.new
+      # find first listing, sets space_name to "Electric"
+      changed_listing = repo.find(1)
+      changed_listing.space_name = "Electric"
+
+      repo.update(changed_listing)
+
+      # find updated listing
+      updated_listing = repo.find(1)
+
+      expect(updated_listing.space_name).to eq "Electric"
+      expect(
+        updated_listing.space_description
+      ).to eq "A lovely, three bedroom cottage."
+    end
+  end
 end

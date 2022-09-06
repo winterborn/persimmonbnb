@@ -1,10 +1,6 @@
 require_relative "./listed_space"
 
 class ListedSpaceRepository
-  # def initalize
-  #   @spaces = []
-  # end
-
   def all
     spaces = []
 
@@ -46,6 +42,47 @@ class ListedSpaceRepository
     ]
     DatabaseConnection.exec_params(sql, sql_params)
 
+    return nil
+  end
+
+  def find(id)
+    sql =
+      "SELECT id, space_name, space_description, space_price, start_date, end_date, booked, user_id FROM listed_spaces WHERE id = $1;"
+    sql_params = [id]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+    record = result_set[0]
+    space = ListedSpace.new()
+    space.id = record["id"].to_i
+    space.space_name = record["space_name"]
+    space.space_description = record["space_description"]
+    space.space_price = record["space_price"].to_i
+    space.start_date = record["start_date"]
+    space.end_date = record["end_date"]
+    space.booked = record["booked"]
+    space.user_id = record["user_id"].to_i
+    return space
+  end
+
+  def update(listed_spaces)
+    sql =
+      "UPDATE listed_spaces SET space_name = $1,
+                                space_description = $2,
+                                space_price = $3,
+                                start_date = $4,
+                                end_date = $5,
+                                booked = $6,
+                                user_id = $7
+    "
+    sql_params = [
+      listed_spaces.space_name,
+      listed_spaces.space_description,
+      listed_spaces.space_price,
+      listed_spaces.start_date,
+      listed_spaces.end_date,
+      listed_spaces.booked,
+      listed_spaces.user_id
+    ]
+    DatabaseConnection.exec_params(sql, sql_params)
     return nil
   end
 end
