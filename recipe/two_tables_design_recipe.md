@@ -127,7 +127,7 @@ _If you can answer YES to the two questions, you'll probably have to implement a
 -- Create the table without the foreign key first.
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  username text, email text,
+  name text, email text, password text
 );
 
 bnb

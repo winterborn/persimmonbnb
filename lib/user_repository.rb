@@ -11,8 +11,9 @@ class UserRepository
       result.map do |res|
         user = User.new
         user.id = res["id"].to_i
+        user.name = res["name"]
         user.email = res["email"]
-        user.username = res["username"]
+        user.password = res["password"]
 
         users << user
       end
@@ -20,8 +21,8 @@ class UserRepository
   end
 
   def create(user)
-    sql = "INSERT INTO users (email, username) VALUES ($1, $2);"
-    params = [user.email, user.username]
+    sql = "INSERT INTO users (name, email, password) VALUES ($1, $2, $3);"
+    params = [user.name, user.email, user.password]
     result = DatabaseConnection.exec_params(sql, params)
   end
 end
