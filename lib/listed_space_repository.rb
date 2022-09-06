@@ -71,8 +71,7 @@ class ListedSpaceRepository
                                 start_date = $4,
                                 end_date = $5,
                                 booked = $6,
-                                user_id = $7
-    "
+                                user_id = $7"
     sql_params = [
       listed_spaces.space_name,
       listed_spaces.space_description,

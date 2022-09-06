@@ -50,7 +50,37 @@ describe Application do
             expect(
                 response.body
             ).to include "<h1>Book a Space</h1>"
-
             end
         end
+        
+        context "GET /login" do
+            it "should return a log-in page" do
+            response = get("/login")
+            expect(response.status).to eq 200
+            expect(response.body).to include "<h1>PersimmonBnB | Log In</h1>"
+            end
+        end
+
+        context "POST /login" do
+        # Check this with coaches
+            it "logs user in and displays book a space page" do
+              response = post("/login", email: "makers@hotmail.com", password: "password123")
+              expect(response.status).to eq 302
+              expect(response.body).to include("")
+            end
+               
+            it "returns login failure page when user password is incorrect" do
+              response =
+                post("/login", email: "makers@hotmail.com", password: "password777")
+              expect(response.status).to eq 200
+              expect(response.body).to include("Log-In Unsuccessful!")
+            end
+
+            it "returns login failure page when user email not found" do
+                response =
+                  post("/login", email: "roi@outlook.com", password: "password777")
+                expect(response.status).to eq 200
+                expect(response.body).to include("Log-In Unsuccessful!")
+              end
+          end
     end
