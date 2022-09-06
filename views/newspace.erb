@@ -1,0 +1,26 @@
+<!-- GET /newspace -->
+
+<html>
+  <head></head>
+  <body>
+    <h1>List a new Space:</h1>
+    <form method="POST" action="/spaces">
+    <div class="container">
+            <label>Name:</label>   
+            <input type="text" placeholder="Enter name" name="space_name" required />
+            <label>Description:</label>   
+            <input type="text" placeholder="Enter description" name="space_description" required />
+            <label>Price:</label>   
+            <input type="number" placeholder="Enter price" name="space_price" required />  
+            <label>Start Date:</label>   
+            <input type="date" placeholder="Enter start date" name="start_date" required />  
+            <label>End Date:</label>   
+            <input type="date" placeholder="Enter end date" name="end_date" required />  
+            <button type="submit">Add Space</button> 
+        </div>   
+    </form>  
+
+    <a href="/">Home</a>
+    <a href="/spaces">Spaces</a>
+  </body>
+</html>
