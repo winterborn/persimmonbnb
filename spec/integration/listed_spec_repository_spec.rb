@@ -22,7 +22,8 @@ RSpec.describe ListedSpaceRepository do
           spaces.first.space_description
         ).to eq "A lovely, three bedroom cottage."
         expect(spaces.first.space_price).to eq 100
-        expect(spaces.first.available_dates).to eq "2022-09-05"
+        expect(spaces.first.start_date).to eq "2022-09-05"
+        expect(spaces.first.end_date).to eq "2022-09-10"
         expect(spaces.first.booked).to eq "f"
         expect(spaces.first.user_id).to eq 1
       end
@@ -36,7 +37,8 @@ RSpec.describe ListedSpaceRepository do
         new_space.space_name = "Caravan"
         new_space.space_description = "Near to the beach."
         new_space.space_price = 50
-        new_space.available_dates = "2022-09-10"
+        new_space.start_date = "2022-09-10"
+        new_space.end_date = "2022-09-26"
         new_space.booked = "f"
         new_space.user_id = 1
 
@@ -49,7 +51,8 @@ RSpec.describe ListedSpaceRepository do
                     space_description:
                       new_space.space_description = "Near to the beach.",
                     space_price: new_space.space_price = 50,
-                    available_dates: new_space.available_dates = "2022-09-10",
+                    start_date: new_space.start_date = "2022-09-10",
+                    end_date: new_space.end_date = "2022-09-26",
                     booked: new_space.booked = "f",
                     user_id: new_space.user_id = 1
                   )

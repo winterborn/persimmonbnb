@@ -137,7 +137,7 @@ bnb_test
 CREATE TABLE listed_spaces (
   id SERIAL PRIMARY KEY,
   space_name text, space_description text, space_price int,
-  available_dates date, booked boolean,
+  start_date date, end_date date, booked boolean,
 -- The foreign key name is always {other_table_singular}_id
   user_id int,
   constraint fk_user foreign key(user_id)
