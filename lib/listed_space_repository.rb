@@ -1,6 +1,10 @@
 require_relative "./listed_space"
 
 class ListedSpaceRepository
+  # def initalize
+  #   @spaces = []
+  # end
+
   def all
     spaces = []
 

@@ -1,0 +1,19 @@
+<!-- GET / -->
+
+<html>
+  <head></head>
+  <body>
+    <h1>Book a Space</h1>
+
+    <h3>.....</h3>
+
+    <% @spaces.each do |space| %>
+        <div>
+            <p><%= space.space_name %>: <%= space.space_description %> - <%= space.space_price %></p>
+        </div>
+      <% end %>
+    
+    <a href="">Log In</a>
+    <a href="">Spaces</a>
+  </body>
+</html>
