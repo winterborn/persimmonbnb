@@ -1,24 +1,7 @@
 GEM
-  specs:
-
-GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.3.1)
-      activesupport (= 7.0.3.1)
-    activerecord (7.0.3.1)
-      activemodel (= 7.0.3.1)
-      activesupport (= 7.0.3.1)
-    activesupport (7.0.3.1)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (>= 1.6, < 2)
-      minitest (>= 5.1)
-      tzinfo (~> 2.0)
-    concurrent-ruby (1.1.10)
     diff-lcs (1.5.0)
-    i18n (1.12.0)
-      concurrent-ruby (~> 1.0)
-    minitest (5.16.3)
     multi_json (1.15.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
@@ -48,9 +31,6 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.2.2)
       tilt (~> 2.0)
-    sinatra-activerecord (2.0.25)
-      activerecord (>= 4.1)
-      sinatra (>= 1.0)
     sinatra-contrib (2.2.2)
       multi_json
       mustermann (~> 2.0)
@@ -58,8 +38,6 @@ GEM
       sinatra (= 2.2.2)
       tilt (~> 2.0)
     tilt (2.0.11)
-    tzinfo (2.0.5)
-      concurrent-ruby (~> 1.0)
     webrick (1.7.0)
 
 PLATFORMS
