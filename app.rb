@@ -3,6 +3,8 @@
 require_relative "lib/database_connection"
 require "sinatra/base"
 require "sinatra/reloader"
+require "sinatra"
+require 'sinatra/activerecord'
 require_relative "lib/listed_space_repository"
 require_relative "lib/user_repository"
 
@@ -89,4 +91,5 @@ class Application < Sinatra::Base
     repo.create(new_user)
     return erb(:confirmation)
   end
+
 end
