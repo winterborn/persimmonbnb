@@ -52,32 +52,30 @@ describe Application do
     end
   end
 
-  context "Get /signup" do
-    describe "/signup" do
-      it "GET /signup" do
-        response = get("/signup")
-        expect(response.status).to eq(200)
-      end
+  context "GET /signup - POST /signup" do
+    it "GET /signup" do
+      response = get("/signup")
+      expect(response.status).to eq(200)
+    end
 
-      it "POST /signup" do
-        response = post("/signup")
-        expect(response.status).to eq(200)
+    it "POST /signup" do
+      response = post("/signup")
+      expect(response.status).to eq(200)
 
-        response =
-          post(
-            "/signup",
-            name: "Ben Solo",
-            email: "bensolo@gmail.com",
-            password: "falcon123"
-          )
+      response =
+        post(
+          "/signup",
+          name: "Ben Solo",
+          email: "bensolo@gmail.com",
+          password: "falcon123"
+        )
 
-        repo = UserRepository.new
-        users = repo.all
+      repo = UserRepository.new
+      users = repo.all
 
-        expect(users[-1].name).to eq("Ben Solo")
-        expect(users[-1].email).to eq("bensolo@gmail.com")
-        expect(users[-1].password).to eq("falcon123")
-      end
+      expect(users[-1].name).to eq("Ben Solo")
+      expect(users[-1].email).to eq("bensolo@gmail.com")
+      expect(users[-1].password).to eq("falcon123")
     end
   end
 end
