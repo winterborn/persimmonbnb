@@ -1,21 +1,18 @@
 <html>
   <head></head>
   <body>
-    <h1>PersimmonBnB | Log In</h1>
-    
-    <form method="POST" action="/login">
+    <h1>PersimmonBnB | Sign-Up:</h1>
+
+    <form method="POST" action="/signup">
     <div class="container">
+            <label>Name:</label>   
+            <input type="text" placeholder="Enter name" name="name" required />
             <label>Email:</label>   
             <input type="text" placeholder="Enter email" name="email" required />
             <label>Password:</label>   
             <input type="password" placeholder="Enter password" name="password" required />  
-            <button type="submit">Log-In</button> 
+            <button type="submit">Sign-Up</button> 
         </div>   
-    </form>
-    <%# <h4>Not registered? <a href="/signup">Sign up!</a></h4>  %>
-
-    <a href="/">Home</a>
-    <a href="/spaces">Spaces</a>
-    <a href="/newspace">List a new Space</a>
+    </form>  
   </body>
 </html>
