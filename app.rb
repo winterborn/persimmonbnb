@@ -15,9 +15,11 @@ class Application < Sinatra::Base
     also_reload "lib/user_repository"
   end
 
-  get "/" do
-    return erb(:index)
-  end
+    enable :sessions
+
+    get "/" do
+      return erb(:index)
+    end
 
   get "/spaces" do
     repo = ListedSpaceRepository.new
@@ -42,6 +44,29 @@ class Application < Sinatra::Base
     @spaces = repo.all
     last_added_space = @spaces.last
     return erb(:spaces)
+  end
+
+  get "/login" do
+    return erb(:login)
+  end
+
+  post "/login" do
+    repo = UserRepository.new
+    email = params[:email]
+    password = params[:password]
+    user = repo.find_by_email(email)
+
+    if user == false
+      # If user name doesn't exist according to #find_by_email
+      return erb(:login_failure)
+    elsif user.password == password && user.email == email
+      # If user name exists, save user ID to current session
+      session[:user_id] = user.id
+      return redirect('/spaces')
+
+    elsif user.password != password && user.email == email
+      return erb(:login_failure)
+    end
   end
 
   get "/signup" do
