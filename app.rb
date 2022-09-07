@@ -9,38 +9,52 @@ require_relative "lib/user_repository"
 DatabaseConnection.connect("bnb_test")
 
 class Application < Sinatra::Base
-    configure :development do
-      register Sinatra::Reloader
-      also_reload "lib/listed_space_repository"
-      also_reload "lib/user_repository"
-    end
+  configure :development do
+    register Sinatra::Reloader
+    also_reload "lib/listed_space_repository"
+    also_reload "lib/user_repository"
+  end
 
-    get "/" do
-      return erb(:index)
-    end
+  get "/" do
+    return erb(:index)
+  end
 
-    get "/spaces" do
-      repo = ListedSpaceRepository.new
-      @spaces = repo.all
-      return erb(:spaces)
-    end
+  get "/spaces" do
+    repo = ListedSpaceRepository.new
+    @spaces = repo.all
+    return erb(:spaces)
+  end
 
-    get "/newspace" do
-      return erb(:newspace)
-    end
+  get "/newspace" do
+    return erb(:newspace)
+  end
 
-    post "/spaces" do
-      repo = ListedSpaceRepository.new
-      new_space = ListedSpace.new
-      new_space.space_name = params[:space_name]
-      new_space.space_description = params[:space_description]
-      new_space.space_price = params[:space_price]
-      new_space.start_date = params[:start_date]
-      new_space.end_date = params[:end_date]
-  
-      new_space = repo.create(new_space)
-      @spaces = repo.all
-      last_added_space = @spaces.last
-      return erb(:spaces)
-    end
+  post "/spaces" do
+    repo = ListedSpaceRepository.new
+    new_space = ListedSpace.new
+    new_space.space_name = params[:space_name]
+    new_space.space_description = params[:space_description]
+    new_space.space_price = params[:space_price]
+    new_space.start_date = params[:start_date]
+    new_space.end_date = params[:end_date]
+
+    new_space = repo.create(new_space)
+    @spaces = repo.all
+    last_added_space = @spaces.last
+    return erb(:spaces)
+  end
+
+  get "/signup" do
+    return erb(:signup)
+  end
+
+  post "/signup" do
+    repo = UserRepository.new
+    new_user = User.new
+    new_user.name = params[:name]
+    new_user.email = params[:email]
+    new_user.password = params[:password]
+    repo.create(new_user)
+    return erb(:login)
+  end
 end
