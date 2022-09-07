@@ -17,9 +17,9 @@ class Application < Sinatra::Base
 
   enable :sessions
 
-    get "/" do
-      return erb(:index)
-    end
+  get "/" do
+    return erb(:index)
+  end
 
   get "/spaces" do
     repo = ListedSpaceRepository.new
@@ -70,7 +70,6 @@ class Application < Sinatra::Base
       session[:user_id] = user.id
       session[:user_name] = user.name
       return redirect('/spaces')
-
     elsif user.password != password && user.email == email
       return erb(:login_failure)
     end
