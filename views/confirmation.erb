@@ -1,9 +1,10 @@
-<!-- GET /confirmation -->
+<!-- views/confirmation.erb -->
 
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css"></head>
   <body>
-    <h1>Thanks for creating an account!</h1>
+    <h1>Thanks <%= @last_added_user.name %>, for creating an account!</h1>
     <p>Click <a href="/login">here</a> to log in.</p>
   </body>
 </html>
