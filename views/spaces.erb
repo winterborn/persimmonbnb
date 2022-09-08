@@ -1,4 +1,4 @@
-<!-- GET /spaces -->
+<!-- views/spaces.erb -->
 
 <html>
   <head>
@@ -15,7 +15,9 @@
 
     <h1>Book a Space</h1>
 
-    <h3>.....</h3>
+    <% if session[:user_id] != nil %>
+      <h3> Welcome, <%= session[:user_name] %>.</h3>
+    <% end %>
 
 
     <div id="homepage-and-form-container">
