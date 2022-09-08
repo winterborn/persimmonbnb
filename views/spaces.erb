@@ -1,31 +1,47 @@
 <!-- GET /spaces -->
 
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
   <body>
+    <header id="header">
+      <a href="/">PersimmonBnB</a>
+      <div  id="header-links">
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+      </div>
+    </header>
+
     <h1>Book a Space</h1>
 
     <h3>.....</h3>
 
-    <form method="POST" action="/">
-    <div class="container">
-            <label>Start Date:</label>   
-            <input type="date" placeholder="Enter start date" name="start_date" required />  
-            <label>End Date:</label>   
-            <input type="date" placeholder="Enter end date" name="end_date" required />  
-            <button type="submit">List Spaces</button> 
-        </div>   
-    </form>  
-
+    <div id="homepage-and-form-container">
+      <div id="available-spaces-container">
     <% @spaces.each do |space| %>
-        <div>
-            <p><%= space.space_name %>: <%= space.space_description %> - £<%= space.space_price %></p>
+      <div>
+          <p><%= space.space_name %>: <%= space.space_description %> - £<%= space.space_price %></p>
+      </div>
+    <% end %>
+      </div>
+
+      <form class="form" method="POST" action="/">
+      <h1 id="sign-up-title">Book a Space</h1>
+    <div class="signup-form">
+        <div class="label-and-input-container">
+          <label>Start Date:</label>   
+          <input class="signup-input" type="date" placeholder="Enter start date" name="start_date" required />  
         </div>
-      <% end %>
-    
-    
-    <a href="/">Home</a>
-    <a href="">Log In</a>
-    <%# <a href="/newspace">List a new Space</a> %>
+        <div class="label-and-input-container">
+          <label>End Date:</label>   
+          <input class="signup-input" type="date" placeholder="Enter end date" name="end_date" required />  
+        </div>
+        <button class="signup-button" type="submit">List Spaces</button>  
+      </div>   
+   </form>  
+</div>
+
   </body>
 </html>
+
