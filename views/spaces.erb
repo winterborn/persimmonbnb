@@ -9,16 +9,19 @@
       <a href="/">PersimmonBnB</a>
       <div  id="header-links">
         <a href="/">Home</a>
-        <a href="/login">Login</a>
+        <a href="/newspace">List a Space</a>
       </div>
     </header>
 
-    <h1>Book a Space</h1>
+    <div id="tagline-div">
+      <h1 id="tagline">Book a Space.</h1>
+    </div>
 
-    <% if session[:user_id] != nil %>
-      <h3> Welcome, <%= session[:user_name] %>.</h3>
-    <% end %>
-
+    <div id="tagline-div">
+      <% if session[:user_id] != nil %>
+        <h2>Welcome, <%= session[:user_name] %>.</h2>
+      <% end %>
+    </div>
 
     <div id="homepage-and-form-container">
       <div id="available-spaces-container">
