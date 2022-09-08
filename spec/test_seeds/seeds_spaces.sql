@@ -1,3 +1,23 @@
+DROP TABLE IF EXISTS “users”;
+DROP TABLE IF EXISTS “listed_spaces”;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name text, email text, password text
+);
+
+CREATE TABLE listed_spaces (
+  id SERIAL PRIMARY KEY,
+  space_name text, space_description text, space_price int,
+  start_date date, end_date date, booked boolean,
+-- The foreign key name is always {other_table_singular}_id
+  user_id int,
+  constraint fk_user foreign key(user_id)
+    references users(id)
+    on delete cascade
+);
+
+
 TRUNCATE TABLE users RESTART IDENTITY CASCADE;
 TRUNCATE TABLE listed_spaces RESTART IDENTITY;
 

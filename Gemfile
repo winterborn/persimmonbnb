@@ -2,12 +2,9 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
-
+ruby "3.1.2"
 gem "rspec", "~> 3.11"
-
 gem "pg", "~> 1.4"
-
 gem "sinatra", "~> 2.2"
 gem "sinatra-contrib", "~> 2.2"
 gem "webrick", "~> 1.7"
