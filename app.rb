@@ -63,13 +63,13 @@ class Application < Sinatra::Base
     user = repo.find_by_email(email)
 
     if user == false
-      # If user name doesn't exist according to #find_by_email
+      # If user doesn't exist according to #find_by_email
       return erb(:login_failure)
     elsif user.password == password && user.email == email
-      # If user name exists, save user ID to current session
+      # If user exists, save user.id to current session, save user.name to current session
       session[:user_id] = user.id
       session[:user_name] = user.name
-      return redirect('/spaces')
+      return redirect("/spaces")
     elsif user.password != password && user.email == email
       return erb(:login_failure)
     end
@@ -86,6 +86,9 @@ class Application < Sinatra::Base
     new_user.email = params[:email]
     new_user.password = params[:password]
     repo.create(new_user)
+
+    users = repo.all
+    @last_added_user = users.last
     return erb(:confirmation)
   end
 end
