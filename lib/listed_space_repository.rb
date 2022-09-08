@@ -88,9 +88,7 @@ class ListedSpaceRepository
   def filter(start_date, end_date)
     spaces = []
     sql =
-      "SELECT id, space_name, space_description, space_price, start_date, end_date, booked, user_id 
-      FROM listed_spaces 
-      WHERE start_date BETWEEN $1 AND $2;"
+      "SELECT * FROM listed_spaces WHERE start_date <= $1 AND end_date >= $2;"
     sql_params = [start_date, end_date]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
     # Loop through result_set to create a model object for each record hash.

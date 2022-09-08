@@ -32,20 +32,15 @@
         <% end %>
       </div>
 
-      <form class="form" method="GET" action="/filter">
-        <h1 id="sign-up-title">Book a Space</h1>
-        <div class="signup-form">
-            <div class="label-and-input-container">
-              <label>Start Date:</label>   
-              <input class="signup-input" type="date" placeholder="Enter start date" name="start_date" required />  
-            </div>
-            <div class="label-and-input-container">
-              <label>End Date:</label>   
-              <input class="signup-input" type="date" placeholder="Enter end date" name="end_date" required />  
-            </div>
-            <button class="signup-button" type="submit">Filter Spaces</button>
+      <form method="GET" action="/filter">
+        <div class="container">
+            <label>Start Date:</label>
+            <input type="date" placeholder="Enter start date" name="start_date" required />
+            <label>End Date:</label>
+            <input type="date" placeholder="Enter end date" name="end_date" required />
+            <button type="submit">Submit</button>
         </div>
+      </form>
      </div>
   </body>
 </html>
-
