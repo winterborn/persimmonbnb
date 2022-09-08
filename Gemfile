@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "3.0.0"
+ruby "3.1.2"
 gem "rspec", "~> 3.11"
 gem "pg", "~> 1.4"
 gem "sinatra", "~> 2.2"
