@@ -1,9 +1,13 @@
-<!-- GET /newspace -->
+<!-- views/newspace.erb -->
 
 <html>
   <head></head>
   <body>
     <h1>List a new Space:</h1>
+
+    <% if session[:user_id] != nil %>
+      <h3> Hi, <%= session[:user_name] %>, looking to list a new Space?</h3>
+    <% end %>
 
     <form method="POST" action="/spaces">
     <div class="container">
