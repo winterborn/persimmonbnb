@@ -28,6 +28,7 @@ class Application < Sinatra::Base
   end
 
   post "/spaces" do
+    puts "WE ARE IN NEW SPACE"
     repo = ListedSpaceRepository.new
     new_space = ListedSpace.new
     new_space.space_name = params[:space_name]
@@ -39,6 +40,15 @@ class Application < Sinatra::Base
     new_space = repo.create(new_space)
     @spaces = repo.all
     last_added_space = @spaces.last
+    return erb(:spaces)
+  end
+
+  get "/filter" do
+    repo = ListedSpaceRepository.new
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+   
+    @spaces = repo.filter(start_date, end_date)
     return erb(:spaces)
   end
 

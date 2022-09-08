@@ -179,3 +179,44 @@ end
 ## 8. Test-drive and implement the Repository class behaviour
 
 _After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
+
+
+```sql
+-- Create the first table.
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name text, email text, password text
+);
+
+-- Create the second table.
+CREATE TABLE listed_spaces (
+  id SERIAL PRIMARY KEY,
+  space_name text, space_description text, space_price int, start_date date, end_date date, booked boolean
+);
+
+-- Create the join table.
+CREATE TABLE booked (
+  user_id int,
+  listed_space_id int, space_name text, booking_start date, booking_end date,
+  constraint fk_listed_space foreign key(listed_space_id) references listed_spaces(id) on delete cascade,
+  constraint fk_user foreign key(user_id) references users(id) on delete cascade,
+  PRIMARY KEY (space_id, user_id)
+);
+
+```
+
+
+
+
+```sql
+
+CREATE TABLE listed_spaces (
+  id SERIAL PRIMARY KEY,
+    space_name text,
+    space_price int,
+    owner_id int4,
+        -- constraint fkey_user_6 
+        foreign key(owner_id)
+      references users(id)
+      on delete cascade
+);
