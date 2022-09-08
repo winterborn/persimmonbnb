@@ -109,13 +109,14 @@ RSpec.describe ListedSpaceRepository do
       repo = ListedSpaceRepository.new
   
       filtered = repo.filter("2022-09-05", "2022-09-10")
+      
 
       # expect(filtered[0].id).to eq 1
-      expect(filtered[0][0]).to eq "Cottage"
-      expect(filtered[0][1]).to eq "A lovely, three bedroom cottage."
-      expect(filtered[0][2]).to eq 100
-      expect(filtered[0][3]).to eq "2022-09-05"
-      expect(filtered[0][4]).to eq "2022-09-10"
+      expect(filtered[0].space_name).to eq "Cottage"
+      expect(filtered[0].space_description).to eq "A lovely, three bedroom cottage."
+      expect(filtered[0].space_price).to eq 100
+      expect(filtered[0].start_date).to eq "2022-09-05"
+      expect(filtered[0].end_date).to eq "2022-09-10"
       # expect(filtered[0][6]).to eq "f"
     end
   end

@@ -86,13 +86,25 @@ class ListedSpaceRepository
   end
 
   def filter(start_date, end_date)
+    spaces = []
     sql =
-      "SELECT id, space_name, space_description, space_price, start_date, end_date, booked, user_id FROM listed_spaces WHERE start_date = $1 AND end_date = $2;"
+      "SELECT id, space_name, space_description, space_price, start_date, end_date, booked, user_id 
+      FROM listed_spaces 
+      WHERE start_date BETWEEN $1 AND $2;"
     sql_params = [start_date, end_date]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
+    # Loop through result_set to create a model object for each record hash.
+    result_set.each do |record|
+      # Create a new model object with the record data.
+      space = ListedSpace.new
+      space.space_name = record["space_name"]
+      space.space_description = (record["space_description"])
+      space.space_price = record["space_price"].to_i
+      space.start_date = record["start_date"]
+      space.end_date = record["end_date"]
 
-    result_set.map do |space|
-      [space['space_name'], space['space_description'], space['space_price'].to_i, space['start_date'], space['end_date']]
+      spaces << space
     end
+    return spaces
   end
 end

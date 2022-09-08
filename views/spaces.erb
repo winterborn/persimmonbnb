@@ -32,7 +32,7 @@
         <% end %>
       </div>
 
-      <form class="form" method="POST" action="/">
+      <form class="form" method="GET" action="/filter">
         <h1 id="sign-up-title">Book a Space</h1>
         <div class="signup-form">
             <div class="label-and-input-container">
@@ -43,10 +43,9 @@
               <label>End Date:</label>   
               <input class="signup-input" type="date" placeholder="Enter end date" name="end_date" required />  
             </div>
-            <button class="signup-button" type="submit">List Spaces</button>  
-        </div>   
-      </form>  
-    </div>
+            <button class="signup-button" type="submit">Filter Spaces</button>
+        </div>
+     </div>
   </body>
 </html>
 
