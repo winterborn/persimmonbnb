@@ -14,7 +14,7 @@ describe Application do
       response = get("/")
 
       expect(response.status).to eq (200)
-      expect(response.body).to include ("<h1>PersimmonBnB</h1>")
+      expect(response.body).to include ('<a href="/">PersimmonBnB</a>')
     end
   end
 
@@ -22,7 +22,7 @@ describe Application do
     it "returns a list of all spaces" do
       response = get("/spaces")
       expect(response.status).to eq (200)
-      expect(response.body).to include ("<h1>Book a Space</h1>")
+      expect(response.body).to include ('<h1 id="tagline">Book a Space.</h1>')
     end
   end
 
@@ -30,17 +30,18 @@ describe Application do
     it "should redirect to login page if not logged-in" do
       response = get("/login")
       expect(response.status).to eq 200
-      expect(response.body).to include ("<h1>PersimmonBnB | Log In</h1>")
+      expect(response.body).to include ('<a href="/">PersimmonBnB</a>')
     end
 
     it "returns 'list a space page' when logged in" do
       # post login request
-      response = post("/login", email: "makers@hotmail.com", password: "password123")
+      response =
+        post("/login", email: "makers@hotmail.com", password: "password123")
 
       # now that user is logged in, should allow user to access new space page.
-      response = get("/newspace")
-        expect(response.status).to eq 200
-        expect(response.body).to include ("<h1>List a new Space:</h1>")
+      response = get("/spaces")
+      expect(response.status).to eq 200
+      expect(response.body).to include ("<h2>Welcome, Brit.</h2>")
     end
   end
 
@@ -57,7 +58,7 @@ describe Application do
           user_id: 1
         )
       expect(response.status).to eq 200
-      expect(response.body).to include "<h1>Book a Space</h1>"
+      expect(response.body).to include '<h1 id="tagline">Book a Space.</h1>'
     end
   end
 
@@ -65,7 +66,7 @@ describe Application do
     it "should return a log-in page" do
       response = get("/login")
       expect(response.status).to eq 200
-      expect(response.body).to include "<h1>PersimmonBnB | Log In</h1>"
+      expect(response.body).to include "<!-- views/login.erb -->"
     end
   end
 
