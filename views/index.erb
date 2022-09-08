@@ -6,11 +6,12 @@
   </head>
   <body>
     <header id="header">
+    <% if session[:user_id] != nil %>
+
       <a href="/">PersimmonBnB</a>
       <div  id="header-links">
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Log In</a>
         <a href="/spaces">Spaces</a>
+        <a href="/newspace">List a Space</a>
       </div>
     </header>
    
@@ -19,13 +20,34 @@
     </div>
 
     <div id="tagline-div">
-      <% if session[:user_id] != nil %>
         <h2> Welcome, <%= session[:user_name] %>.</h2>
-      <% end %>
     </div>
      
     <div id="homepage-img-container">
       <img src="/img/bnbimage.jpg" alt="Home in the woods" id="homepage-img">
     </div>
+
+    <% end %>
+    <% if session[:user_id] == nil %>
+
+      <a href="/">PersimmonBnB</a>
+      <div  id="header-links">
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Log In</a>
+        <a href="/spaces">Spaces</a>
+        <a href="/newspace">List a Space</a>
+      </div>
+    </header>
+   
+    <div id="tagline-div">
+      <h1 id="tagline">Feel at home, anywhere.</h1>
+    </div>
+     
+    <div id="homepage-img-container">
+      <img src="/img/bnbimage.jpg" alt="Home in the woods" id="homepage-img">
+    </div>
+
+
+    <% end %>
   </body>
 </html>

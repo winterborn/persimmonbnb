@@ -22,7 +22,9 @@ describe Application do
     it "returns a list of all spaces" do
       response = get("/spaces")
       expect(response.status).to eq (200)
-      expect(response.body).to include ('<h1 id="tagline">Book a Space.</h1>')
+      expect(response.body).to include (
+                '<h1 id="tagline">Available Spaces.</h1>'
+              )
     end
   end
 
@@ -58,7 +60,7 @@ describe Application do
           user_id: 1
         )
       expect(response.status).to eq 200
-      expect(response.body).to include '<h1 id="tagline">Book a Space.</h1>'
+      expect(response.body).to include '<h1 id="tagline">Available Spaces.</h1>'
     end
   end
 
