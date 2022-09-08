@@ -103,4 +103,20 @@ RSpec.describe ListedSpaceRepository do
       ).to eq "A lovely, three bedroom cottage."
     end
   end
+
+  context "#filter method" do
+    it "filters available listings based on available dates" do
+      repo = ListedSpaceRepository.new
+  
+      filtered = repo.filter("2022-09-05", "2022-09-10")
+
+      # expect(filtered[0].id).to eq 1
+      expect(filtered[0][0]).to eq "Cottage"
+      expect(filtered[0][1]).to eq "A lovely, three bedroom cottage."
+      expect(filtered[0][2]).to eq 100
+      expect(filtered[0][3]).to eq "2022-09-05"
+      expect(filtered[0][4]).to eq "2022-09-10"
+      # expect(filtered[0][6]).to eq "f"
+    end
+  end
 end

@@ -84,4 +84,15 @@ class ListedSpaceRepository
     DatabaseConnection.exec_params(sql, sql_params)
     return nil
   end
+
+  def filter(start_date, end_date)
+    sql =
+      "SELECT id, space_name, space_description, space_price, start_date, end_date, booked, user_id FROM listed_spaces WHERE start_date = $1 AND end_date = $2;"
+    sql_params = [start_date, end_date]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+
+    result_set.map do |space|
+      [space['space_name'], space['space_description'], space['space_price'].to_i, space['start_date'], space['end_date']]
+    end
+  end
 end
