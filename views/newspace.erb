@@ -14,11 +14,13 @@
   </header>
    
     <div id="tagline-div">
-      <h1 id="tagline">Because your space is too good not to share.</h3>
-      
+      <h1 id="tagline">Because your Space is too good not to share.</h1>
+    </div>
+
+    <div id="tagline-div">
       <% if session[:user_id] != nil %>
-      <h3> Hi, <%= session[:user_name] %>, looking to list a new Space?</h3>
-    <% end %>
+        <h2> Hey <%= session[:user_name] %>, looking to list a new Space?</h2>
+      <% end %>
     </div>
 
     <div id="homepage-and-form-container">
@@ -27,7 +29,7 @@
       </div>
 
       <form class="form" method="POST" action="/signup">
-      <h1 id="sign-up-title">List your space here:</h1>
+      <h1 id="sign-up-title">List your Space:</h1>
     <div class="signup-form">
         <div class="label-and-input-container">
           <label>Name:</label>   

@@ -15,9 +15,15 @@
     </header>
    
     <div id="tagline-div">
-      <h1 id="tagline">Feel at home, anywhere.</h3>
+      <h1 id="tagline">Feel at home, anywhere.</h1>
     </div>
 
+    <div id="tagline-div">
+      <% if session[:user_id] != nil %>
+        <h2> Welcome, <%= session[:user_name] %>.</h2>
+      <% end %>
+    </div>
+     
     <div id="homepage-img-container">
       <img src="/img/bnbimage.jpg" alt="Home in the woods" id="homepage-img">
     </div>
