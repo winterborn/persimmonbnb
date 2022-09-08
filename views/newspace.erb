@@ -1,31 +1,58 @@
 <!-- views/newspace.erb -->
 
 <html>
-  <head></head>
+  <head>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
   <body>
-    <h1>List a new Space:</h1>
-
-    <% if session[:user_id] != nil %>
+  <header id="header">
+    <a href="/">PersimmonBnB</a>
+    <div  id="header-links">
+      <a href="/">Home</a>
+      <a href="/spaces">Spaces</a>
+    </div>
+  </header>
+   
+    <div id="tagline-div">
+      <h1 id="tagline">Because your space is too good not to share.</h3>
+      
+      <% if session[:user_id] != nil %>
       <h3> Hi, <%= session[:user_name] %>, looking to list a new Space?</h3>
     <% end %>
+    </div>
 
-    <form method="POST" action="/spaces">
-    <div class="container">
-            <label>Name:</label>   
-            <input type="text" placeholder="Enter name" name="space_name" required />
-            <label>Description:</label>   
-            <input type="text" placeholder="Enter description" name="space_description" required />
-            <label>Price:</label>   
-            <input type="number" placeholder="Enter price" name="space_price" required />  
-            <label>Start Date:</label>   
-            <input type="date" placeholder="Enter start date" name="start_date" required />  
+    <div id="homepage-and-form-container">
+      <div id="homepage-img-container">
+        <img src="/img/woman-in-house.jpg" alt="Home in the woods" id="newspace-img">
+      </div>
+
+      <form class="form" method="POST" action="/signup">
+      <h1 id="sign-up-title">List your space here:</h1>
+    <div class="signup-form">
+        <div class="label-and-input-container">
+          <label>Name:</label>   
+          <input class="signup-input" type="text" placeholder="Enter name" name="space_name" required />
+        </div>
+        <div class="label-and-input-container">
+          <label>Description:</label>   
+          <input class="signup-input" type="text" placeholder="Enter description" name="space_description" required />
+        </div>
+        <div class="label-and-input-container">
+          <label>Price:</label>   
+          <input class="signup-input" type="number" placeholder="Enter price" name="space_price" required />  
+        </div>
+        <div class="label-and-input-container">
+        <label>Start Date:</label>   
+        <input class="signup-input" type="date" placeholder="Enter start date" name="start_date" required />  
+      </div>
+      <div class="label-and-input-container">
             <label>End Date:</label>   
-            <input type="date" placeholder="Enter end date" name="end_date" required />  
-            <button type="submit">Add Space</button> 
-        </div>   
-    </form>  
-
-    <a href="/">Home</a>
-    <a href="/spaces">Spaces</a>
+            <input class="signup-input" type="date" placeholder="Enter end date" name="end_date" required />  
+          </div>
+          <button class="signup-button" type="submit">Make listing</button> 
+      </div>   
+   </form>  
+</div>
+    
   </body>
 </html>

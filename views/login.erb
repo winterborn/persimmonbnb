@@ -1,22 +1,35 @@
 <!-- views/login.erb -->
 
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
   <body>
-    <h1>PersimmonBnB | Log In</h1>
-    
-    <form method="POST" action="/login">
-    <div class="container">
+      <header id="header">
+      <a href="/">PersimmonBnB</a>
+        <div  id="header-links">
+        <a href="/">Home</a>
+        <a href="/spaces">Spaces</a>
+        <a href="/newspace">List a new Space</a>
+        </div>
+    </header>
+
+    <div id="homepage-and-form-container">
+      <div id="homepage-img-container">
+       <img src="/img/house-with-view.jpg" alt="Home in the woods" id="login-img">
+      </div>
+  
+      <form class="login-form" method="POST" action="/login">
+        <div class="container">
+          <div class="label-and-input-container">
             <label>Email:</label>   
-            <input type="text" placeholder="Enter email" name="email" required />
+            <input class="signup-input" type="text" placeholder="Enter email" name="email" required />
+          <div class="label-and-input-container">
             <label>Password:</label>   
-            <input type="password" placeholder="Enter password" name="password" required />  
-            <button type="submit">Log-In</button> 
+            <input class="signup-input" type="password" placeholder="Enter password" name="password" required />  
+          </div>
+          <button class="signup-button" type="submit">Log-In</button> 
         </div>   
     </form>
-    
-    <a href="/">Home</a>
-    <a href="/spaces">Spaces</a>
-    <a href="/newspace">List a new Space</a>
   </body>
 </html>
