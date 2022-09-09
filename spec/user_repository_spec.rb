@@ -38,25 +38,25 @@ RSpec.describe UserRepository do
   end
 
   context "#find_by_email(email) method" do
-      it "gets and returns a specific user given email" do
-        repo = UserRepository.new
-        user = repo.find_by_email("makers@hotmail.com")
-        expect(user.id).to eq 1
-        expect(user.name).to eq "Brit"
-        expect(user.email).to eq "makers@hotmail.com"
-        expect(user.password).to eq "password123"
+    it "gets and returns a specific user given email" do
+      repo = UserRepository.new
+      user = repo.find_by_email("makers@hotmail.com")
+      expect(user.id).to eq 1
+      expect(user.name).to eq "Brit"
+      expect(user.email).to eq "makers@hotmail.com"
+      expect(user.password).to eq "password123"
 
-        user = repo.find_by_email("hotstuff@gmail.com")
-        expect(user.id).to eq 2
-        expect(user.name).to eq "Nas"
-        expect(user.email).to eq "hotstuff@gmail.com"
-        expect(user.password).to eq "taximan99"
-      end
-
-      it "returns false when given email not present in database" do
-        repo = UserRepository.new
-        user = repo.find_by_email("roi@outlook.com")
-        expect(user).to eq false
-      end
+      user = repo.find_by_email("hotstuff@gmail.com")
+      expect(user.id).to eq 2
+      expect(user.name).to eq "Nas"
+      expect(user.email).to eq "hotstuff@gmail.com"
+      expect(user.password).to eq "taximan99"
     end
+
+    it "returns false when given email not present in database" do
+      repo = UserRepository.new
+      user = repo.find_by_email("roi@outlook.com")
+      expect(user).to eq false
+    end
+  end
 end
