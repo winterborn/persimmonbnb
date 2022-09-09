@@ -1,135 +1,138 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  a:visited{
-    text-decoration: none;
-    color: inherit;
-  }
-
-  #header{
-    display:flex;
-    justify-content: space-between;
-    padding: 15px 0px 30px 0px;
-  }
-  
-  #header-links{
-    display:flex;
-    width:500px;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  #header-links a{
-    text-decoration: none;
-  }
-
-  #tagline-div{
-    display: flex;
-    justify-content: center;
-  }
-
-  #homepage-img-container{
-    display: flex;
-    justify-content: center;
-  }
-
-  #homepage-img{
-    width: 800px;
-    border-radius: 80px;
-  }
-
-  #newspace-img {
-    width: 800px;
-    border-radius: 80px;
-  }
-
-  #login-img{
-    width: 700px;
-    border-radius: 80px;
-  }
-  
-  .signup-box{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    width: 200px;
-    margin: auto;
-    border: 2px solid black
-  }
-  
-  .signup-button{
-    width:100px;
-    margin: 20px auto;
-  }
-
- /* sign up */
-
-#homepage-and-form-container{
-display: flex;
-justify-content: space-around;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.form{
-background-color: #d2ba89;
-border-radius: 20px;
-box-sizing: border-box;
-height: 500px;
-padding: 20px;
-width: 320px;
+a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
-.login-form{
-    background-color: #d2ba89;
-    border-radius: 20px;
-    box-sizing: border-box;
-    height: 200px;
-    padding: 20px;
-    width: 320px;
-  
-    }
-
-.signup-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 300px;
-    align-items: center;
+#header {
+  display: flex;
+  padding: 15px 0px 30px 0px;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
-#sign-up-title{
-    text-align: center;
+#header-links {
+  display: flex;
+  width: 500px;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
-.label-and-input-container{
-   display: flex;
+#header-links a {
+  text-decoration: none;
+}
+
+#tagline-div {
+  display: flex;
+  justify-content: center;
+}
+
+#homepage-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+#homepage-img {
+  width: 800px;
+  border-radius: 80px;
+}
+
+#newspace-img {
+  width: 800px;
+  border-radius: 80px;
+}
+
+#login-img {
+  width: 700px;
+  border-radius: 80px;
+}
+
+.signup-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 200px;
+  margin: auto;
+  border: 2px solid black;
+}
+
+.signup-button {
+  width: 100px;
+  margin: 20px auto;
+}
+
+/* sign up */
+
+#homepage-and-form-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form {
+  background-color: #d2ba89;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+}
+
+.login-form {
+  background-color: #d2ba89;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 200px;
+  padding: 20px;
+  width: 320px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 300px;
+  align-items: center;
+}
+
+#sign-up-title {
+  text-align: center;
+}
+
+.label-and-input-container {
+  display: flex;
   flex-direction: column;
 }
 
-.signup-input{
-    width: 250px;
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    background-color: #d2ba89;
-    padding-left: 0px;
+.signup-input {
+  width: 250px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #d2ba89;
+  padding-left: 0px;
 }
 
-.signup-input:focus{
-    outline: none;
+.signup-input:focus {
+  outline: none;
 }
 
-.signup-button{
-    background-color: #d2ba89;
-    border: none;
-    border-radius: 5px;
-    text-decoration: underline;
-    font-size: 15px;
+.signup-button {
+  background-color: #d2ba89;
+  border: none;
+  border-radius: 5px;
+  text-decoration: underline;
+  font-size: 15px;
 }
 
-.signup-button:hover{
-    cursor: pointer;
+.signup-button:hover {
+  cursor: pointer;
 }
